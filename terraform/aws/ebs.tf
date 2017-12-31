@@ -32,5 +32,10 @@ resource "aws_elastic_beanstalk_environment" "env" {
 		name      = "EC2KeyName"
 		value     = "${var.keyname}"
 	}
+	setting {
+		namespace = "aws:elasticbeanstalk:container:nodejs"
+		name      = "NodeCommand"
+		value     = "node httpd.js"
+	}
 
 }
