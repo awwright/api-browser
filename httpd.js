@@ -6,7 +6,7 @@ var React = require('react');
 var Redux = require('redux');
 var ReactRedux = require('react-redux');
 
-var com = require('./app.js');
+var com = require('./ui.js');
 var renderToString = require('react-dom/server').renderToString;
 var TemplateRouter = require('uri-template-router');
 
@@ -14,11 +14,12 @@ var port = process.env.PORT || 8080;
 
 var server = http.createServer(handleRequest);
 server.listen(port);
+console.log('Server running at http://127.0.0.1:' + port + '/');
 
 var routes = new TemplateRouter.Router();
 routes.addTemplate('http://localhost/{?instance}', null, new RouteDocument());
-routes.addTemplate('http://localhost/app.js', null, new RouteStatic('app.js', 'application/ecmascript'));
-routes.addTemplate('http://localhost/app.css', null, new RouteStatic('app.css', 'text/css'));
+routes.addTemplate('http://localhost/ui.js', null, new RouteStatic('ui.js', 'application/ecmascript'));
+routes.addTemplate('http://localhost/style.css', null, new RouteStatic('style.css', 'text/css'));
 
 function handleRequest(req, res){
 	if(typeof req.url!='string') throw new Error('Expected request.url to be a string');
@@ -54,10 +55,10 @@ RouteDocument.prototype.process = function handleRequestDocument(req, res){
 		+ '<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.js"></script>'
 		+ '<script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.0.6/react-redux.js"></script>'
 		+ '<script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.1/immutable.js"></script>'
-		+ '<script type="application/ecmascript" src="app.js"></script>'
+		+ '<script type="application/ecmascript" src="ui.js"></script>'
 		+ '<script type="application/ecmascript">document.addEventListener("DOMContentLoaded", onLoad);</script>'
 		+ '<script type="application/json" id="state">'+com.serializeState(state).replace(/<\//g, '<\\/')+'</script>'
-		+ '<link rel="stylesheet" type="text/css" href="app.css" />'
+		+ '<link rel="stylesheet" type="text/css" href="style.css" />'
 		+ '</head><body>'
 		+ '<div id="main">'+apphtml+'</div>'
 		+ '</body></html>';
