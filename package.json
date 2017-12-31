@@ -1,0 +1,32 @@
+{
+  "name": "json-api-browser",
+  "version": "0.0.0",
+  "description": "Browser JSON Hyper-schema APIs",
+  "main": "httpd.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awwright/json-api-browser.git"
+  },
+  "keywords": [
+    "json",
+    "json-schema"
+  ],
+  "author": "Austin Wright",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/awwright/json-api-browser/issues"
+  },
+  "homepage": "https://github.com/awwright/json-api-browser#readme",
+  "dependencies": {
+    "commander": "^2.12.2",
+    "immutable": "^3.8.2",
+    "nodemon": "^1.14.6",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  }
+}

@@ -1,0 +1,14 @@
+
+.editor-form {
+	
+}
+.editor-form textarea {
+	display:block;
+	width:100%;
+}
+editor-form input.editor-collection-post:checked {
+	
+}
+editor-form label.editor-collection-url {
+	display: none;
+}
