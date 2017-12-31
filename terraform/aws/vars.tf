@@ -1,16 +1,21 @@
 
 variable "vpc_cidr" {
-  type = "string"
+	type = "string"
 }
 
 variable "aws_access_key" {
-  type = "string"
+	type = "string"
 }
 
 variable "aws_secret_key" {
-  type = "string"
+	type = "string"
 }
 
 variable "aws_region" {
-  type = "string"
+	type = "string"
+}
+
+variable "keyname" {
+	type = "string"
+	default = ""
 }

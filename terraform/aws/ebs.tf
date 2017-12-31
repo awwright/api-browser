@@ -27,5 +27,10 @@ resource "aws_elastic_beanstalk_environment" "env" {
 		name      = "Subnets"
 		value     = "${join(",", "${data.aws_subnet_ids.public.ids}")}"
 	}
+	setting {
+		namespace = "aws:autoscaling:launchconfiguration"
+		name      = "EC2KeyName"
+		value     = "${var.keyname}"
+	}
 
 }
