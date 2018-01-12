@@ -19,3 +19,8 @@ variable "keyname" {
 	type = "string"
 	default = ""
 }
+
+// This is used in hostnames/FQDNs
+variable "appname" {
+	type = "string"
+}
