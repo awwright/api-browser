@@ -7,7 +7,7 @@ resource "aws_elastic_beanstalk_application" "app" {
 resource "aws_elastic_beanstalk_environment" "env" {
 	name                = "${var.appname}"
 	application         = "${aws_elastic_beanstalk_application.app.name}"
-	solution_stack_name = "64bit Amazon Linux 2017.09 v4.4.1 running Node.js"
+	solution_stack_name = "64bit Amazon Linux 2017.09 v4.4.3 running Node.js"
 
 	// List of settings:
 	// https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html
