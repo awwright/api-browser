@@ -23,7 +23,6 @@
   "dependencies": {
     "commander": "^2.12.2",
     "immutable": "^3.8.2",
-    "nodemon": "^1.14.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
