@@ -143,7 +143,7 @@ function ApplicationBody(prop){
 			React.createElement("div", {}, [
 				React.createElement("label", {}, [
 					"Document URL",
-					React.createElement("input", {type:'text', defaultValue:'https://api.github.com/users/awwright', ref:function(e){ eDocumentForm=e; }}),
+					React.createElement("input", {type:'text', defaultValue:remoteDocumentURI||'https://api.github.com/users/awwright', ref:function(e){ eDocumentForm=e; }}),
 				]),
 				React.createElement("button", {
 					onClick: function(e){ e.preventDefault(); prop.onLoadDocument(eDocumentForm.value); }
