@@ -12,3 +12,8 @@ editor-form input.editor-collection-post:checked {
 editor-form label.editor-collection-url {
 	display: none;
 }
+
+body .CodeMirror {
+	border: 1px solid #eee;
+	height: auto;
+}

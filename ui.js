@@ -1,13 +1,14 @@
-// Section 0. Cross platform stuff
-if(typeof exports=='object'){
-	var Immutable = require('immutable');
-	var React = require('react');
-	var ReactRedux = require('react-redux');
-}else if(typeof document=='object'){
-	var exports = {};
-	//document.addEventListener("DOMContentLoaded", onLoad);
-}else{
-	//throw new Error('Unknown platform');
+var Immutable = require('immutable');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Redux = require('redux');
+var ReduxThunk = require('redux-thunk');
+var ReactRedux = require('react-redux');
+var JSONSchemaParse = require('jsonschemaparse');
+var CodeMirror = require('react-codemirror');
+
+if(typeof document=='object'){
+	document.addEventListener("DOMContentLoaded", onLoad);
 }
 
 function mapStateProps(state){
@@ -133,6 +134,22 @@ function ApplicationBody(prop){
 	var remoteDocumentURI = state.get('remoteDocumentURI');
 	var remoteDocumentType = state.get('remoteDocumentType');
 
+	if(typeof window=='object' && window.CodeMirror){
+		var codeMirrorInstance = window.CodeMirror;
+	}
+
+	function createCodeMirror(value){
+		if(!codeMirrorInstance) return React.createElement('textarea', {value:value});
+		var codemirrorOptions = {
+			lineNumbers: true,
+			mode: "application/json",
+			gutters: ["CodeMirror-lint-markers"],
+			lint: true,
+			viewportMargin: Infinity,
+		};
+		return React.createElement(CodeMirror, {codeMirrorInstance:codeMirrorInstance, value:value, onChange:function(){}, options:codemirrorOptions});
+	}
+
 	var eDocumentForm;
 
 	return React.createElement("form", {
@@ -149,9 +166,10 @@ function ApplicationBody(prop){
 					onClick: function(e){ e.preventDefault(); prop.onLoadDocument(eDocumentForm.value); }
 				}, "Go"),
 			]),
-			React.createElement("div", {}, [
+			remoteDocumentURI && React.createElement("div", {}, [
 				//React.createElement("textarea", {value:state.get('remoteDocumentData')}),
-				React.createElement("pre", {}, state.get('remoteDocumentData')),
+				//React.createElement("pre", {}, state.get('remoteDocumentData')),
+				createCodeMirror(state.get('remoteDocumentData')),
 			]),
 			React.createElement("div", {}, [
 				React.createElement("label", {}, [
