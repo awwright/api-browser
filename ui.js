@@ -7,6 +7,8 @@ var ReactRedux = require('react-redux');
 var JSONSchemaParse = require('jsonschemaparse');
 var CodeMirror = require('react-codemirror');
 
+if(typeof window=='object') window.JSONSchemaParse = JSONSchemaParse;
+
 if(typeof document=='object'){
 	document.addEventListener("DOMContentLoaded", onLoad);
 }
