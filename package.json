@@ -22,15 +22,15 @@
   "homepage": "https://github.com/awwright/json-api-browser#readme",
   "dependencies": {
     "browserify": "^15.2.0",
-    "commander": "^2.12.2",
+    "commander": "^2.19.0",
+    "dive-httpd": "0.0.2",
     "immutable": "^3.8.2",
-    "jsonschemaparse": "0.0.4",
-    "react": "^16.2.0",
-    "react-codemirror": "^1.0.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
+    "jsonschemaparse": "0.0.8",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-jsonschema-form": "^1.0.6",
+    "react-redux": "^5.1.0",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "uri-template-router": "0.0.1"
+    "redux-thunk": "^2.3.0"
   }
 }

@@ -5,9 +5,10 @@ var Redux = require('redux');
 var ReduxThunk = require('redux-thunk');
 var ReactRedux = require('react-redux');
 var JSONSchemaParse = require('jsonschemaparse');
-var CodeMirror = require('react-codemirror');
+//var CodeMirror = require('react-codemirror');
 
 if(typeof window=='object') window.JSONSchemaParse = JSONSchemaParse;
+
 
 if(typeof document=='object'){
 	document.addEventListener("DOMContentLoaded", onLoad);
@@ -141,6 +142,7 @@ function ApplicationBody(prop){
 	}
 
 	function createCodeMirror(value){
+		return React.createElement('textarea', {value:value});
 		if(!codeMirrorInstance) return React.createElement('textarea', {value:value});
 		var codemirrorOptions = {
 			lineNumbers: true,
